@@ -20,6 +20,7 @@
         </asp:TemplateField> 
         <asp:TemplateField HeaderText="Remove Item">            
                 <ItemTemplate>
+                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="RemoveBtn_Click"/>
                     <asp:CheckBox id="Remove" runat="server"></asp:CheckBox>
                 </ItemTemplate>        
         </asp:TemplateField>    

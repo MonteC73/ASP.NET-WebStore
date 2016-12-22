@@ -87,5 +87,23 @@ namespace WebStore
         {
             UpdateCartItems();
         }
+
+        protected void RemoveBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button) sender;
+            GridViewRow row = (GridViewRow) btn.NamingContainer;
+            
+            IOrderedDictionary rowValues = new OrderedDictionary();
+            rowValues = GetValues(row);
+            int productId = Convert.ToInt32(rowValues["ProductID"]);
+
+            using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
+            {
+                String cartId = usersShoppingCart.GetCartId();
+                usersShoppingCart.RemoveItem(cartId, productId);
+            }
+
+            UpdateCartItems();
+        }
     }
 }
