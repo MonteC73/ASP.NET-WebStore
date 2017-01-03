@@ -56,7 +56,7 @@ namespace WebStore
 
                     CheckBox cbRemove = new CheckBox();
                     cbRemove = (CheckBox)CartList.Rows[i].FindControl("Remove");
-                    cartUpdates[i].RemoveItem = cbRemove.Checked;
+                    //cartUpdates[i].RemoveItem = cbRemove.Checked;
 
                     TextBox quantityTextBox = new TextBox();
                     quantityTextBox = (TextBox)CartList.Rows[i].FindControl("PurchaseQuantity");
@@ -95,7 +95,8 @@ namespace WebStore
             
             IOrderedDictionary rowValues = new OrderedDictionary();
             rowValues = GetValues(row);
-            int productId = Convert.ToInt32(rowValues["ProductID"]);
+            //int productId = Convert.ToInt32(rowValues["ProductID"]);
+            int productId = Convert.ToInt32(CartList.DataKeys[row.RowIndex].Values[0]);
 
             using (ShoppingCartActions usersShoppingCart = new ShoppingCartActions())
             {
