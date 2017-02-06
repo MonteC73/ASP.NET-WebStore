@@ -120,7 +120,7 @@ namespace WebStore.Logic
                         {
                             if (cartItem.Product.ProductID == CartItemUpdates[i].ProductId)
                             {
-                                if (CartItemUpdates[i].PurchaseQuantity < 1 || CartItemUpdates[i].RemoveItem == true)
+                                if (CartItemUpdates[i].PurchaseQuantity < 1) // || CartItemUpdates[i].RemoveItem == true
                                 {
                                     RemoveItem(cartId, cartItem.ProductId);
                                 }
@@ -209,7 +209,7 @@ namespace WebStore.Logic
         {
             public int ProductId;
             public int PurchaseQuantity;
-            public bool RemoveItem;
+            //public bool RemoveItem;
         }
     }
 }

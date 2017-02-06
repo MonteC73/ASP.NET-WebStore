@@ -51,11 +51,16 @@ namespace WebStore
                 for (int i = 0; i < CartList.Rows.Count; i++)
                 {
                     IOrderedDictionary rowValues = new OrderedDictionary();
-                    rowValues = GetValues(CartList.Rows[i]);
-                    cartUpdates[i].ProductId = Convert.ToInt32(rowValues["ProductID"]);
+                    
+                    //rowValues = GetValues(CartList.Rows[i]);
+                    GridViewRow row = (GridViewRow) CartList.Rows[i];
+                    rowValues = GetValues(row);
 
-                    CheckBox cbRemove = new CheckBox();
-                    cbRemove = (CheckBox)CartList.Rows[i].FindControl("Remove");
+                    //cartUpdates[i].ProductId = Convert.ToInt32(rowValues["ProductID"]);
+                    cartUpdates[i].ProductId = Convert.ToInt32(CartList.DataKeys[row.RowIndex].Values[0]);
+
+                    //CheckBox cbRemove = new CheckBox();
+                    //cbRemove = (CheckBox)CartList.Rows[i].FindControl("Remove");
                     //cartUpdates[i].RemoveItem = cbRemove.Checked;
 
                     TextBox quantityTextBox = new TextBox();

@@ -5,15 +5,15 @@
     <div id="ShoppingCartTitle" runat="server" class="ContentHead">
         <h1>Shopping Cart</h1>
     </div>
-    <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
+    <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" GridLines="None" ShowFooter="True" CellPadding="4"
         ItemType="WebStore.Models.CartItem" SelectMethod="GetShoppingCartItems" DataKeyNames="ProductId"
-        CssClass="table table-striped table-bordered">
+        CssClass="table table-striped table-hover">
         <Columns>
-            <asp:TemplateField HeaderText="Picture">
+           <%-- <asp:TemplateField HeaderText="Picture">
                 <ItemTemplate>
                     <img src="/Catalog/Images/Thumbs/<%#:Item.Product.ImagePath %>" style="border:solid; height: 60px; width:80px" alt="<%#:Item.Product.ProductName %>"/>
                 </ItemTemplate>
-            </asp:TemplateField>
+            </asp:TemplateField> --%>
 
             <%--  <asp:BoundField DataField="Product.ImagePath" HeaderText="Picture2" /> --%>
 
@@ -23,6 +23,7 @@
             
             <asp:TemplateField HeaderText="Product Name">
                 <ItemTemplate>
+                    <img src="/Catalog/Images/Thumbs/<%#:Item.Product.ImagePath %>" style="border-style:none; height: 60px; width:80px" alt="<%#:Item.Product.ProductName %>"/>
                     <asp:HyperLink runat="server" NavigateUrl='<%#: "ProductDetails.aspx?productID=" + Item.Product.ProductID %>'><%#:Item.Product.ProductName %></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -43,7 +44,7 @@
 
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Button ID="Button1" runat="server" Text="Remove" OnClick="RemoveBtn_Click" />
+                    <asp:Button ID="Button1" runat="server" Text="x" OnClick="RemoveBtn_Click" class="btn btn-warning btn-xs"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
@@ -61,7 +62,7 @@
     <table>
         <tr>
             <td>
-                <asp:Button ID="UpdateBtn" runat="server" Text="Update" OnClick="UpdateBtn_Click" />
+                <asp:Button ID="UpdateBtn" runat="server" Text="Update" OnClick="UpdateBtn_Click" class="btn btn-default"/>
             </td>
             <td>
                 <!--Checkout Placeholder -->
