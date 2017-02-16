@@ -10,9 +10,13 @@
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Scripts.Render("~/Scripts/jquery-1.10.2.js") %>  <%-- This is not good place nor way to import jquery /refactor! --%>
+        <%: Scripts.Render("~/bundles/Custom") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    
 
 </head>
 <body>
@@ -34,6 +38,8 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                
+                
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -81,19 +87,19 @@
             </a>  
             <br />  
         </div>
-        <div id="CategoryMenu" style="text-align: center">       
+        <div id="CategoryMenu" style="text-align: center" class="btn-group btn-group-justified">       
             <asp:ListView ID="categoryList"  
                 ItemType="WebStore.Models.Category" 
                 runat="server"
                 SelectMethod="GetCategories" >
                 <ItemTemplate>
                     <b style="font-size: large; font-style: normal">
-                        <a href="/ProductList.aspx?id=<%#: Item.CategoryID %>">
+                        <a href="/ProductList.aspx?id=<%#: Item.CategoryID %>" class="btn btn-default btn-sm">
                         <%#: Item.CategoryName %>
                         </a>
                     </b>
                 </ItemTemplate>
-                <ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>
+                <%--<ItemSeparatorTemplate>  |  </ItemSeparatorTemplate>--%>
             </asp:ListView>
         </div>
         <div class="container body-content">

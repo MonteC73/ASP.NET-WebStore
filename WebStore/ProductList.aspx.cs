@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebStore.Models;
 using System.Web.ModelBinding;
 
@@ -25,6 +24,7 @@ namespace WebStore
                 querry = querry.Where(p => p.CategoryID == categoryId);
             }
             return querry;
+            
         }
     }
 }

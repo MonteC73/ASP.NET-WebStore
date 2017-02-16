@@ -11,7 +11,7 @@
                 <div class="col-md-10">
                         <asp:ListView ID="productList" runat="server" 
                             DataKeyNames="ProductID" GroupItemCount="5"
-                            ItemType="WebStore.Models.Product" SelectMethod="GetProducts">
+                            ItemType="WebStore.Models.Product" SelectMethod="GetProducts" >
                             <EmptyDataTemplate>
                                 <table >
                                     <tr>
@@ -89,7 +89,7 @@
                                     </Fields>
                                 </asp:DataPager>--%>
                                 <div class="text-center">
-                                <asp:DataPager ID="it" runat="server" class="btn-group btn-group-sm" PageSize="5">
+                                <asp:DataPager ID="it" runat="server" class="btn-group btn-group-sm" PageSize="5" PagedControlID="productList">
                                     <Fields >
                                         <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="|<" ShowPreviousPageButton="true"
                                         ShowFirstPageButton="false" ShowNextPageButton="false" ShowLastPageButton="false"
